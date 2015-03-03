@@ -7,7 +7,7 @@ public class NumberToWords {
     private static String words;
     private static int[] values = new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90 };
     private static String[] labels = new String[] { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
-    private static String[] tensLabels = new String[]{" ", " ", "Thousand ", "Million ", "Billion ", "Trillion "};
+    private static String[] tens = new String[]{" ", " ", "Thousand ", "Million ", "Billion ", "Trillion "};
     private static Map<Integer, String> valueLabelMap = new HashMap<>();
 
     private static NumberToWords numberToWords;
@@ -26,7 +26,7 @@ public class NumberToWords {
         for (int i = 0; i < partitions.size(); i++) {
             if (partitions.get(i) == 0) continue;
             convertDigitsToWord(partitions.get(i).toString());
-            words += tensLabels[partitions.size()-i];
+            words += tens[partitions.size()-i];
         }
         return words;
     }
